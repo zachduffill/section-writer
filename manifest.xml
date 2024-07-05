@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>295a25f1-4c3d-4e6a-92c8-424168ab26f6</Id>
+  <Version>1.0.1</Version>
+  <ProviderName>Zach Duffill</ProviderName>
+  <DefaultLocale>en-GB</DefaultLocale>
+  <DisplayName DefaultValue="Section Writer"/>
+  <Description DefaultValue="Split your work into sections with seperate word counters."/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://github.com/zachduffill/section-writer/README.md"/>
+  <AppDomains>
+    <AppDomain>https://localhost</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="SharedRuntime" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Document">
+      <Runtimes>
+        <Runtime resid="Taskpane.Url" lifetime="long" />
+      </Runtimes>
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+          <FunctionFile resid="Taskpane.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="CommandsGroup">
+                <Label resid="CommandsGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Control xsi:type="Button" id="TaskpaneButton">
+                  <Label resid="TaskpaneButton.Label"/>
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Label"/>
+                    <Description resid="TaskpaneButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Settings.16x16"/>
+                    <bt:Image size="32" resid="Settings.32x32"/>
+                    <bt:Image size="80" resid="Settings.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="AddSectionButton2">
+                  <Label resid="AddSectionButton.Label"/>
+                  <Supertip>
+                    <Title resid="AddSectionButton.Label"/>
+                    <Description resid="AddSectionButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>addSection</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="EditSectionButton">
+                  <Label resid="EditSectionButton.Label"/>
+                  <Supertip>
+                    <Title resid="EditSectionButton.Label"/>
+                    <Description resid="EditSectionButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Edit.16x16"/>
+                    <bt:Image size="32" resid="Edit.32x32"/>
+                    <bt:Image size="80" resid="Edit.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>editSection</FunctionName>
+                  </Action>
+                  <!-- <disabled>true</disabled> -->
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+          <ExtensionPoint xsi:type="ContextMenu">
+            <OfficeMenu id="ContextMenuText">
+              <Control xsi:type="Button" id="AddSectionButton">
+                <Label resid="cmControlLabel" />
+                <Supertip>
+                  <Title resid="cmTipTitle"/>
+                  <Description resid="cmTipDesc"/>
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Action xsi:type="ExecuteFunction">
+                  <FunctionName>addSection</FunctionName>
+                </Action>
+              </Control>
+            </OfficeMenu>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Settings.16x16" DefaultValue="https://localhost:3000/assets/settings-16.png"/>
+        <bt:Image id="Settings.32x32" DefaultValue="https://localhost:3000/assets/settings-32.png"/>
+        <bt:Image id="Settings.80x80" DefaultValue="https://localhost:3000/assets/settings-80.png"/>
+        <bt:Image id="Edit.16x16" DefaultValue="https://localhost:3000/assets/edit-16.png"/>
+        <bt:Image id="Edit.32x32" DefaultValue="https://localhost:3000/assets/edit-32.png"/>
+        <bt:Image id="Edit.80x80" DefaultValue="https://localhost:3000/assets/edit-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="residTaskpaneUrl2" DefaultValue="https://localhost:3000/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Welcome to Section Writer!"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="Section Writer"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Settings"/>
+        <bt:String id="AddSectionButton.Label" DefaultValue="Add Section"/>
+        <bt:String id="EditSectionButton.Label" DefaultValue="Edit Section"/>
+        <bt:String id="cmTipTitle" DefaultValue="cm title"/>
+        <bt:String id="cmControlLabel" DefaultValue="Add Section"/>
+        <bt:String id="menuItem1Label" DefaultValue="item1"/>
+        <bt:String id="menuItem1TipTitle" DefaultValue="tipt"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Select text or Click anywhere on the page, then Right Click and click 'Create Section' to get started."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open Settings"/>
+        <bt:String id="AddSectionButton.Tooltip" DefaultValue="Click to Add a Section"/>
+        <bt:String id="EditSectionButton.Tooltip" DefaultValue="Edit the selected Section"/>
+        <bt:String id="cmTipDesc" DefaultValue="desc"/>
+        <bt:String id="menuItem1TipDesc" DefaultValue="tipdesc"/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

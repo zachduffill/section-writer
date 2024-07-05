@@ -1,0 +1,72 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Section</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <script type="text/javascript" src="editDialog.js"></script>
+
+    <style>
+        .ms-welcome{
+            background-color: black;
+        }
+        .setting-item {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        .setting-item label {
+            margin-right: 10px;
+            flex-shrink: 0;
+            color: white;
+        }
+        .optionDiv {
+            width: 50%;
+            vertical-align: middle;
+        }
+        input {
+            width: 80%;
+            float: right;
+        }
+        input[type="color"]::-webkit-color-swatch{
+            border:none;
+        }
+        .ms-font-su {
+            font-size: 1em;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <div class="ms-welcome__main">
+        <div style="margin-top: 10px; margin-bottom: 0px; align-self: center;">
+            <label class="ms-font-su" for="wordCount" style="font-size: large; font-weight: bold;">Edit Section</label>
+        </div>
+        <div class="setting-item" style="width: 100%;">
+            <div class="optionDiv"><label class="ms-font-su" for="sectionColor">Color:</label></div>
+            <div class="optionDiv"><input type="color" id="sectionColor" name="sectionColor" value="#ffd970" style="width:calc(80% + 8px);"></div>
+        </div>
+        <div class="setting-item" style="width: 100%;">
+            <div class="optionDiv"><label class="ms-font-su" for="wordTargetCount">Word Target:</label></div>
+            <div class="optionDiv"><input type="number" id="wordTargetCount" name="wordTargetCount" min="5" value="500"></div>
+        </div>
+        <div class="setting-item" style="width: 100%;">
+            <div class="optionDiv"><button onclick="confirmChanges()" id="okBtn">Ok</button></div>
+            <div class="optionDiv"><button onclick="closeDialog()">Cancel</button></div>
+        </div>
+    </div>
+</body>
+
+</html>
