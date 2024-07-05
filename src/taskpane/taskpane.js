@@ -61,7 +61,7 @@ async function editSection(event){
       let sColor = cc.color;
       let target = targetCountDict.get(cc.id);
 
-      Office.context.ui.displayDialogAsync(`https://localhost:3000/editDialog.html?color=${sColor.slice(1)}&target=${target}`, {height: 14, width: 15},  // Had to get the cc again from id within the callback event, as cannot retain cc object in both contexts, even with trackedobjects
+      Office.context.ui.displayDialogAsync(`https://zachduffill.github.io/section-writer/dist/editDialog.html?color=${sColor.slice(1)}&target=${target}`, {height: 14, width: 15},  // Had to get the cc again from id within the callback event, as cannot retain cc object in both contexts, even with trackedobjects
         function (asyncResult) {
             let dialog = asyncResult.value;
             dialog.addEventHandler(Office.EventType.DialogMessageReceived, 
