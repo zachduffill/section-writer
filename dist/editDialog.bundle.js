@@ -1,0 +1,2 @@
+!function(){var e,t;Office.onReady((function(){var n=new URLSearchParams(window.location.search),o="#"+n.get("color"),c=n.get("target");e=document.getElementById("sectionColor"),t=document.getElementById("wordTargetCount"),e.value=o,t.value=c,document.addEventListener("keypress",(function(e){"Enter"===e.key&&document.getElementById("okBtn").click()}))}))}();
+//# sourceMappingURL=editDialog.bundle.js.map
