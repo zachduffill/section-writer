@@ -7,3 +7,5 @@
 <br></br>
 ## Installation
 Download [manifest.xml](https://github.com/zachduffill/section-writer/blob/main/manifest.xml) and follow [these instructions](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins) to sideload the add-in.
+
+If you are deploying the add-in within an organisation or across multiple computers, there are other methods [here](https://learn.microsoft.com/en-us/office/dev/add-ins/publish/publish).
